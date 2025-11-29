@@ -1,0 +1,311 @@
+/* 基础重置和变量定义 */
+:root {
+  --primary-red: #e53935;
+  --primary-blue: #1e88e5;
+  --primary-black: #212121;
+  --accent-gold: #ffd700;
+  --light-gray: #f5f5f5;
+  --dark-gray: #424242;
+  --white: #ffffff;
+  
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Arial Black', 'Microsoft YaHei', sans-serif;
+  
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: var(--primary-black);
+  background-color: var(--light-gray);
+  min-height: 100vh;
+}
+
+/* 容器布局 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+/* 头部样式 */
+.header {
+  background: linear-gradient(135deg, var(--primary-black) 0%, var(--dark-gray) 100%);
+  color: var(--white);
+  padding: var(--spacing-md) 0;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-red), var(--primary-blue), var(--accent-gold));
+}
+
+.header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header .subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* 导航样式 */
+.nav {
+  background: var(--white);
+  padding: var(--spacing-sm) 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: var(--spacing-lg);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.nav-link {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  color: var(--primary-black);
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* 内容区域 */
+.content {
+  background: var(--white);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  margin-bottom: var(--spacing-lg);
+}
+
+.character-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary-black);
+  position: relative;
+}
+
+.character-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
+  margin: var(--spacing-sm) auto;
+  border-radius: 2px;
+}
+
+/* 修改图片网格为竖着并列 */
+.image-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.image-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 600px; /* 控制图片最大宽度 */
+}
+
+.image-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.image-item img {
+  width: 100%;
+  height: auto; /* 改为自适应高度 */
+  object-fit: cover;
+  display: block;
+}
+
+/* 段落样式 */
+.paragraph {
+  margin-bottom: var(--spacing-md);
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--dark-gray);
+}
+
+.paragraph:first-letter {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: var(--primary-red);
+  margin-right: 2px;
+}
+
+/* 返回按钮 */
+.back-button {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+  margin-top: var(--spacing-md);
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 136, 229, 0.4);
+  color: var(--white);
+}
+
+/* 首页特色样式 */
+.hero-section {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+  margin: var(--spacing-lg) 0;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.character-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.character-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+  text-decoration: none;
+  color: inherit;
+}
+
+.character-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.character-card h3 {
+  padding: var(--spacing-md);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-black);
+  background: var(--light-gray);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .character-title {
+    font-size: 2.2rem;
+  }
+  
+  .content {
+    padding: var(--spacing-md);
+  }
+  
+  .image-grid {
+    gap: var(--spacing-sm);
+  }
+  
+  .character-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-link {
+    width: 200px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .character-title {
+    font-size: 1.8rem;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+  }
+  
+  .image-item {
+    max-width: 100%; /* 在小屏幕上使用全宽 */
+  }
+}
